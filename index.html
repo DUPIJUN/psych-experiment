@@ -1,7 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>Test</title></head>
-<body>
-  <h1>如果你能看到这行，说明 GitHub Pages 正常工作！</h1>
-</body>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>心理学实验</title>
+
+  <!-- jsPsych 核心库 -->
+  <link href="https://unpkg.com/jspsych@7.3.1/css/jspsych.css" rel="stylesheet" />
+  <script src="https://unpkg.com/jspsych@7.3.1/dist/jspsych.js"></script>
+
+  <!-- jsPsych 插件 -->
+  <script src="https://unpkg.com/@jspsych/plugin-html-button-response"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-fullscreen"></script>
+
+</head>
+
+<body></body>
+
+<script>
+  const jsPsych = initJsPsych({
+    on_finish: () => jsPsych.data.displayData()
+  });
+
+  // 全屏阶段
+  const fullscreen = {
+    type: jsPsychFullscreen,
+    message: "<p>实验即将开始。</p><p>点击下方按钮进入全屏模式。</p>",
+    button_label: "进入全屏",
+    fullscreen_mode: true
+  };
+
+  // 欢迎界面
+  const welcome = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: "<h2>欢迎参加实验！</h2><p>点击下方按钮继续。</p>",
+    choices: ["继续"]
+  };
+
+  // 主时间线
+  const timeline = [];
+  timeline.push(fullscreen);
+  timeline.push(welcome);
+
+  jsPsych.run(timeline);
+</script>
 </html>
