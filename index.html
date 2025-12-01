@@ -1,44 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <title>My Experiment</title>
-
-  <!-- 引入 jsPsych 主库 -->
-  <script src="https://unpkg.com/jspsych@7.3.0"></script>
-
-  <!-- 插件：按钮、全屏 -->
-  <script src="https://unpkg.com/@jspsych/plugin-html-button-response"></script>
-  <script src="https://unpkg.com/@jspsych/plugin-fullscreen"></script>
-
-  <!-- jsPsych 样式 -->
-  <link href="https://unpkg.com/jspsych@7.3.0/css/jspsych.css" rel="stylesheet" />
-
-</head>
-
-<body></body>
-
-<script>
-  var jsPsych = initJsPsych({
-    on_finish: function() {
-      jsPsych.data.displayData();  // 实验结束后显示结果
-    }
-  });
-
-  // 欢迎界面
-  var welcome = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus: "欢迎参加实验！",
-    choices: ["开始"]
-  };
-
-  // 进入全屏
-  var enter_fullscreen = {
-    type: jsPsychFullscreen,
-    fullscreen_mode: true
-  };
-
-  jsPsych.run([welcome, enter_fullscreen]);
-</script>
-
+<head><meta charset="utf-8"><title>Test</title></head>
+<body>
+  <h1>如果你能看到这行，说明 GitHub Pages 正常工作！</h1>
+</body>
 </html>
